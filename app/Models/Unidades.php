@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Unidades extends Model
+{
+    use HasFactory;
+    protected $fillable = ['matricula',
+                           'modelo', 
+                           'marca', 
+                           'modelo_del_motor', 
+                           'combustible'];
+}
