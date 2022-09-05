@@ -1,24 +1,10 @@
 @extends('layouts.main', ['activePage' => 'lista_empleados', 'titlePage' =>'LISTA EMPLEADOS'])
 @section('content')
-<head>
-     <style type="text/css">
-         #tabla {
-          width: 1000px;
-          height: 900px;
-          margin: ;
-          border :#D9D9D9  10px solid;
-          width: 960px;
-          height: 960px;
-          margin: auto;
-          border :#D9D9D9  2px solid;
-          border-radius: 20px;
-          background-color: #D9D9D9;
-         }
-      </style>
-     </head>
-        <div class="container center">
-            <h1>Lista de Empleados</h1>
-        <div class="row" id="tabla">
+<div class="content">
+<div class="card">
+    <div class="card-header card-header-danger">
+        <h4 class="card-title">LISTA DE EMPLEADOS</h4>
+    </div>
         <table>
             <thead>
                 <th>ID</th>
@@ -51,11 +37,13 @@
                             <form action="{{ route('motoristas.destroy', $item->id)}} "method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn red darken-4"><i class="material-icons">delete</i></button>
+                                <button type="submit" class="btn btn-danger"><i class="material-icons">delete</i></button>
                             </form>
                             </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+   </div>
+</div>
 @endsection

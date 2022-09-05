@@ -1,93 +1,56 @@
 @extends('layouts.main', ['activePage' => 'unidades', 'titlePage' =>'REGISTRAR UNIDADES'])
 @section('content')
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <form action="#" method="post" class="form-horizontal">
-                        @csrf
-                        <div class="card">
-                            <div class="card-header card-header-danger">
-                                <h4 class="card-title">REGISTRO UNIDADES</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col s12">
-                                      Nombres:
-                                      <div class="input-field inline">
-                                          <input name="nombres" id="nombres_inline" type="text" class="validate" >
-                                          <label for="nombres_inline">Nombres motorista</label>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                      Apellidos:
-                                      <div class="input-field inline">
-                                           <input name="apellidos" id="apellidos_inline" type="text" class="validate">
-                                           <label for="apellidos_inline">Apellidos motorista</label>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                      Email:
-                                      <div class="input-field inline">
-                                          <input name="email" id="email_inline" type="text" class="validate">
-                                          <label for="email_inline">Correo electronico</label>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                      Telefono:
-                                      <div class="input-field inline">
-                                          <input name="telefono" id="telefono_inline" type="text" class="validate">
-                                          <label for="telefono_inline">Telefono</label>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col s12">
-                                      DUI:
-                                      <div class="input-field inline">
-                                          <input name="dui" id="dui_inline" type="text" class="validate">
-                                          <label for="dui_inline">Número de Dui</label>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                  <div class="col s12">
-                                   Nit:
-                                    <div class="input-field inline">
-                                        <input name="nit" id="nit_inline" type="text" class="validate">
-                                        <label for="nit_inline">Número de Nit</label>
-                                    </div>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                <div class="col s12">
-                                  Direccion:
-                                  <div class="input-field inline">
-                                      <input name="direccion" id="direccion_inline" type="text" class="validate">
-                                      <label for="direccion_inline">Direccion</label>
-                                  </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                              <div class="col s12">
-                                Licencia:
-                                <div class="input-field inline">
-                                    <input name="licencia" id="licencia_inline" type="text" class="validate">
-                                    <label for="licencia_inline">Licencia</label>
-                                </div>
-                              </div>
-                           </div>
-                         </div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+              <form method="post" class="col s12" action="{{route('unidades.store')}}">
+                    @csrf
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title">REGISTRO UNIDADES</h4>
                         </div>
-                    </form>
-                </div>
+                        <div class="card-body">
+                                <div class="form-group row">
+                                  <label for="inputmatricula"  class="col-sm-2 col-form-label">Matricula </label>
+                                  <div class="col-sm-10">
+                                    <input name="matricula" type="text" class="form-control" id="inputmatricula" placeholder="Matricula" autofocus>
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputmodelo" class="col-sm-2 col-form-label">Modelo</label>
+                                    <div class="col-sm-10">
+                                      <input name="modelo" type="text" class="form-control" id="inputmodelo" placeholder="Modelo" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputmarca" class="col-sm-2 col-form-label">Marca</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputmarca" placeholder="Marca de unidad" name="marca">
+                                    </div>                                          
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputmodelo_del_motor" class="col-sm-2 col-form-label">Modelo del motor</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputmodelo_del_motor" placeholder="Modelo del motor" name="modelo_del_motor">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputcombustible" class="col-sm-2 col-form-label">Combustible</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputcombustible" placeholder="Combustible" name="combustible">
+                                    </div>
+                                  </div>
+                       </div>
+                       <!--Footer-->
+                       <div class="car-footer ml-auto mr-auto">
+                          <button type="submit" class="btn btn-danger">Guardar</button>
+                       </div>
+                       <!--End footer-->
+                  </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 @endsection

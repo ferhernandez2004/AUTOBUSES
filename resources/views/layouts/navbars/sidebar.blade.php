@@ -66,7 +66,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'lista_unidades' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route ('unidades.index')}}">
           <i class="material-icons">list</i>
           <p>{{ __('LISTA UNIDADES') }}</p>
         </a>
