@@ -31,4 +31,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    //Conexion con firebase (Realtime Database)
+    'firebase' => [
+        'api_key' => 'AIzaSyAIK0_bRT-dsJZpYiaLmaAikgwQ3YOLPbE',
+        'auth_domain' => 'larafirebase-b4879.firebaseapp.com',
+        'database_url' => 'larafirebase-b4879.appspot.com',
+        'project_id' => 'larafirebase-b4879',
+        'storage_bucket' => 'larafirebase-b4879.appspot.com',
+        'messaging_sender_id' => '791447942330',
+        'app_id' => '1:791447942330:web:1fa081ee4d739740a93e83',
+        'measurement_id' => 'G-HR2RJL11HF',
+    ],
+
 ];

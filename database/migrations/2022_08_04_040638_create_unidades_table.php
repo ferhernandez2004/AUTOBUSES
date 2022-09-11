@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo_del_motor');
             $table->string('combustible');
+            $table->float('coordenadas');
             $table->timestamps();
         });
     }
