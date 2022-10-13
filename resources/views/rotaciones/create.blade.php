@@ -12,7 +12,7 @@
                         </div>
                         <div class="card-body">
                                 <div class="form-group row">
-                                  <label for="inputmatricula"  class="col-sm-2 col-form-label">Motorista</label>
+                                  <label for="inputmatricula" class="col-sm-2 col-form-label">Motorista</label>
                                   <div class="col-sm-10">
                                     <input name="motorista" type="text" class="form-control" id="inputmotorista" placeholder="Motorista" >
                                   </div>
@@ -20,7 +20,7 @@
                                 <div class="form-group row">
                                     <label for="inputasignacion_de_ruta" class="col-sm-2 col-form-label">Asignacion de ruta</label>
                                     <div class="col-sm-10">
-                                      <input name="asignacion_de_ruta" type="text" class="form-control" id="inputasignacion_de_ruta" placeholder="Asignacion_de_ruta" >
+                                      <input name="asignacion_de_ruta" type="text" class="form-control" id="inputasignacion_de _ruta" placeholder="Asignacion de ruta" >
                                     </div>
                                   </div>
                                   <div class="form-group row">
