@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MotoristasController;
 use App\Http\Controllers\UnidadesController;
+use App\Http\Controllers\RotacionesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,6 @@ Route::get('/', function () {
 Route::get('/home',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('motoristas', MotoristasController::class);
 Route::resource('unidades', UnidadesController::class);
+Route::resource('rotaciones', RotacionesController::class);
+
 

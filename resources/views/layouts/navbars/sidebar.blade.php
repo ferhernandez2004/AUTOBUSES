@@ -53,8 +53,8 @@
             <p>{{ __('REGISTRO UNIDAD') }}</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'rotacion' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+      <li class="nav-item{{ $activePage == 'rotaciones' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('rotaciones.create') }}">
           <i class="material-icons">cached</i>
           <p>{{ __('ROTACION') }}</p>
         </a>
@@ -72,7 +72,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'lista_rotacion' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route ('rotaciones.index')}}">
           <i class="material-icons">list</i>
           <p>{{ __('LISTA ROTACIÓN') }}</p>
         </a>

@@ -1,75 +1,57 @@
-@extends('layouts.main')
+@extends('layouts.main', ['activePage' => 'unidades', 'titlePage' =>'EDITAR UNIDADES'])
 @section('content')
-<head>
-    <style type="text/css">
-        form{
-            width: 500px;
-            height: 770px;
-            margin: auto;
-            border : black  2px solid;
-            border-radius: 20px;
-            background-color: white;
-        }
-     </style>
-</head>
-        <div class="container center">
-            <h1>Editar unidades</h1>
-            <form method="post" class="col s12" action="{{route('unidades.update', $unidad->id) }}">
-                <div class="row">
-                    @csrf 
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+              <form method="POST" class="col s12" action="{{route('unidades.update', $unidad->id) }}">
+                    @csrf
                     @method('PATCH')
-                    <div class="row">
-                        <div class="col s12">
-                          Matricula:
-                          <div class="input-field inline">
-                              <input name="matricula" id="matricula_inline" type="text" class="validate" required value="{{$unidad->matricula}}">
-                              <label for="matricula_inline">Matricula de la unidad</label>
-                          </div>
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title">EDITAR UNIDADES</h4>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                          Modelo:
-                          <div class="input-field inline">
-                               <input name="modelo" id="modelo_inline" type="text" class="validate" required value="{{$unidad->modelo}}">
-                               <label for="modelo_inline">Modelo de la unidad</label>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                          Marca:
-                          <div class="input-field inline">
-                              <input name="marca" id="marca_inline" type="text" class="validate" required value="{{$unidad->marca}}">
-                              <label for="marca_inline">Marca de la unidad</label>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                          Modelo del motor:
-                          <div class="input-field inline">
-                              <input name="modelo_del_motor" id="modelo_del_motor_inline" type="text" class="validate" required value="{{$unidad->modelo_del_motor}}">
-                              <label for="modelo_del_motor_inline">Modelo del motor</label>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                          Combustible:
-                          <div class="input-field inline">
-                              <input name="combustible" id="combustible_inline" type="text" class="validate" required value="{{$unidad->combustible}}">
-                              <label for="combustible_inline">Tipo de combustible</label>
-                          </div>
-                        </div>
-                    </div>
-            <div class="row">
-            <div class="row">
-                <div class="input-field col s12">
-                    <a href="{{ route('unidades.index')}}" class="btn yellow darken-4">Cancelar</a>
-                    <input type="submit" value="Actualizar" class="btn green darken-4">
-                </div>
+                        <div class="card-body">
+                                <div class="form-group row">
+                                  <label for="inputmatricula"  class="col-sm-2 col-form-label">Matricula </label>
+                                  <div class="col-sm-10">
+                                    <input name="matricula" type="text" class="form-control" id="inputmatricula" placeholder="Matricula" autofocus value="{{$unidad->matricula}}">
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputmodelo" class="col-sm-2 col-form-label">Modelo</label>
+                                    <div class="col-sm-10">
+                                      <input name="modelo" type="text" class="form-control" id="inputmodelo" placeholder="Modelo" value="{{$unidad->modelo}}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputmarca" class="col-sm-2 col-form-label">Marca</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputmarca" placeholder="Marca de unidad" name="marca" value="{{$unidad->marca}}">
+                                    </div>                                          
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputmodelo_del_motor" class="col-sm-2 col-form-label">Modelo del motor</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputmodelo_del_motor" placeholder="Modelo del motor" name="modelo_del_motor" value="{{$unidad->modelo_del_motor}}">
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="inputcombustible" class="col-sm-2 col-form-label">Combustible</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputcombustible" placeholder="Combustible" name="combustible" value="{{$unidad->combustible}}">
+                                    </div>
+                                  </div>
+                       </div>
+                       <!--Footer-->
+                       <div class="car-footer ml-auto mr-auto">
+                          <button type="submit" class="btn btn-danger">Guardar</button>
+                       </div>
+                       <!--End footer-->
+                  </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
+</div>
 @endsection

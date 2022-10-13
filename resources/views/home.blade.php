@@ -41,7 +41,7 @@
           </script>
         
           <script type="text/javascript"
-              src="https://maps.google.com/maps/api/js?key={{ env('AIzaSyDYSTkbL3Cq6ajRoDRFbpWnEL-tL0sj0sU') }}&callback=initMap" ></script>
+              src="https://maps.google.com/maps/api/js?key={{ env('AIzaSyCseii9upCVOnV1SOey-ocNNcjPM0YIHw8') }}&callback=initMap" ></script>
               <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -91,7 +91,7 @@
                                 <table class="table table-bordered">
                                     <tr>
                                         <th>Latitude</th>
-                                        <th>Lintitude</th>
+                                        <th>Longitude</th>
                                         <th width="180" class="text-center">Acción</th>
                                     </tr>
                                     <tbody id="tbody">
@@ -151,15 +151,15 @@ $('body').on('click', '.updateData', function() {
 	firebase.database().ref('locations/' + updateID).on('value', function(snapshot) {
 		var values = snapshot.val();
 		var updateData = <div class="form-group">
-		<label for="longitude" class="col-md-12 col-form-label">Latitude X</label>\
+		<label for="longitude" class="col-md-12 col-form-label">Latitude </label>
 		<div class="col-md-12">
-		<input id="latitude" type="text" class="form-control" name="latitude" value="'+latitude+'" required autofocus>\
+		<input id="latitude" type="text" class="form-control" name="latitude" value="'+latitude+'" required autofocus>
 	</div>
 </div>
 <div class="form-group">
-	<label for="longitude" class="col-md-12 col-form-label">Longitude Y</label>\
+	<label for="longitude" class="col-md-12 col-form-label">Longitude </label>
 	<div class="col-md-12">
-	<input id="longitude" type="text" class="form-control" name="longitude" value="'+ longitude +'" required autofocus>\
+	<input id="longitude" type="text" class="form-control" name="longitude" value="'+ longitude +'" required autofocus>
 	</div>
 </div>
 		 
@@ -170,7 +170,7 @@ $('body').on('click', '.updateData', function() {
 $('.updateLocationRecord').on('click', function() {
 	var values = $(".locations-update-record-model").serializeArray();
 	var postData = {
-	longitude : values[0].value,
+	latitude: values[0].value,
 	longitude : values[1].value,
 };
  
@@ -183,7 +183,7 @@ $("#update-modal").modal('hide');
 });
 $("body").on('click', '.removeData', function() {
 	var id = $(this).attr('data-id');
-        $('body').find('.locations-remove-record-model').append('<input name="id" type="hidden" value="'+ id +'">');
+        $('body').find('.locations-remove-record-model').append(<input name="id" type="hidden" value="'+ id +'">);
 });
  
 $('.deleteMatchRecord').on('click', function(){
