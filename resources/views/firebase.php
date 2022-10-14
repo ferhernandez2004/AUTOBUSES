@@ -1,17 +1,17 @@
-//Conexion para acciones crud con firebase
+// Conexion para acciones crud con firebase
 
 <script>
-    var config = {
-        apiKey: "{{ config('services.firebase.api_key') }}",
-authDomain: "{{ config('services.firebase.auth_domain') }}",
-databaseURL: "{{ config('services.firebase.database_url') }}",
-projectId: "{{ config('services.firebase.project_id') }}",
-storageBucket: "{{ config('services.firebase.storage_bucket') }}",
-messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
-appId: "{{ config('services.firebase.app_id') }}"
-    };
+   const firebaseConfig = {
+  apiKey: "AIzaSyDW7gCLy4VTDKhKKFNkwN0_0MqNgikercc",
+  authDomain: "buses-bb36f.firebaseapp.com",
+  projectId: "buses-bb36f",
+  storageBucket: "buses-bb36f.appspot.com",
+  messagingSenderId: "796856910422",
+  appId: "1:796856910422:web:a83af17418b13326a431f7",
+  measurementId: "G-6FX3EQ20CZ"
+};
 
-    firebase.initializeApp(config);
-    var database = firebase.database();
-    var lastIndex = 0;
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 </script>

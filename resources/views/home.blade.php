@@ -1,8 +1,7 @@
 @extends('layouts.main', ['activePage' => 'inicio', 'titlePage' => __('INICIO')])
-
 @section('content')
   <div class="content">
-    <h1><!DOCTYPE html>
+    <!DOCTYPE html>
       <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
           
       <head>
@@ -23,23 +22,22 @@
           </div>
         
           <script type="text/javascript">
-              function initMap() {
-                const myLatLng = { lat: 13.7333, lng: -89.7167 };
-                const map = new google.maps.Map(document.getElementById("map"), {
-                  zoom: 5,
-                  center: myLatLng,
-                });
-        
-                new google.maps.Marker({
-                  position: myLatLng,
-                  map,
-                  title: "Hello Rajkot!",
-                });
-              }
-        
-              window.initMap = initMap;
-          </script>
-        
+              <div id ="map"> </div> 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCKiIqCdZGrVxx06LSbe7uG3zXOq1Cz5k&callback=initMap" async defer></script>
+        <script>
+            
+          var map;
+           function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 13.732152604316594, lng: -89.7177017184798},
+              zoom: 13,
+            });
+            var marker = new google.maps.Marker({
+              position: {lat: 13.732152604316594, lng: -89.7177017184798},
+              map: map,
+            });
+          }
+          </script>
           <script type="text/javascript"
               src="https://maps.google.com/maps/api/js?key={{ env('AIzaSyCseii9upCVOnV1SOey-ocNNcjPM0YIHw8') }}&callback=initMap" ></script>
               <div class="container">
@@ -102,17 +100,13 @@
                     </div>
                 </div>
             </div>
-      </body>
-      </html></h1>
-@endsection
-
-<script>
-  firebase.database().ref('locations/').on('value', function(snapshot){
-  var value = snapshot.val();
-  var contents = [];
-  $.each(value, function(index, value){
-    if(value){
-contents.push(
+            <script>
+             firebase.database().ref('locations/').on('value', function(snapshot){
+               var value = snapshot.val();
+                var contents = [];
+               $.each(value, function(index, value){
+              if(value){
+              contents.push(
       <tr>
         <td>'+value.latitude+'</td>
         <td>'+value.longitude+'</td>
@@ -123,30 +117,24 @@ contents.push(
     }
     
     lastIndex = index;
-
-
   });
   $('#tbody').html(contents);
   $('#submitLocations').removeClass('disabled');
-});
-
-$('submitLocations').on('click', function(){
+      });
+    $('submitLocations').on('click', function(){
   var values = $('#addLocation').serializeArray();
   var latitude = values[0].value;
   var longitude = values[1].value;
   var locationID = lastindex+1;
-});
-
-firebase.database().ref('locations/' + locationID).set({
+  });
+  firebase.database().ref('locations/' + locationID).set({
   latitude: latitude,
   longitude: longitude
-});
-
-lastIdex = locationID;
-$('#addLocation input').value('');
-
-var updateID = 0;
-$('body').on('click', '.updateData', function() {
+   });
+   lastIdex = locationID;
+    $('#addLocation input').value('');
+    var updateID = 0;
+    $('body').on('click', '.updateData', function() {
 	updateID = $(this).attr('data-id');
 	firebase.database().ref('locations/' + updateID).on('value', function(snapshot) {
 		var values = snapshot.val();
@@ -155,24 +143,24 @@ $('body').on('click', '.updateData', function() {
 		<div class="col-md-12">
 		<input id="latitude" type="text" class="form-control" name="latitude" value="'+latitude+'" required autofocus>
 	</div>
-</div>
-<div class="form-group">
+    </div>
+  <div class="form-group">
 	<label for="longitude" class="col-md-12 col-form-label">Longitude </label>
 	<div class="col-md-12">
 	<input id="longitude" type="text" class="form-control" name="longitude" value="'+ longitude +'" required autofocus>
 	</div>
-</div>
+ </div>
 		 
 	$('#updateBody').html(updateData);
 	});
-});
+   });
  
-$('.updateLocationRecord').on('click', function() {
+    $('.updateLocationRecord').on('click', function() {
 	var values = $(".locations-update-record-model").serializeArray();
 	var postData = {
 	latitude: values[0].value,
 	longitude : values[1].value,
-};
+  };
  
 var updates = {};
 updates['locations' + updateID] = postData;
@@ -219,8 +207,6 @@ $('.remove-data-from-delete-form').click(function() {
         </div>
     </div>
 </form>
-
-<!-- Update Model -->
 <form action="" method="POST" class="locations-update-record-model form-horizontal">
     <div id="update-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog" style="width:55%;">
@@ -239,24 +225,23 @@ $('.remove-data-from-delete-form').click(function() {
         </div>
     </div>
 </form>
-
-
-
 <script>
-  var config = {
-        apiKey: "{{ config('services.firebase.api_key') }}",
-authDomain: "{{ config('services.firebase.auth_domain') }}",
-databaseURL: "{{ config('services.firebase.database_url') }}",
-projectId: "{{ config('services.firebase.project_id') }}",
-storageBucket: "{{ config('services.firebase.storage_bucket') }}",
-messagingSenderId: "{{ config('services.firebase.messaging_sender_id') }}",
-appId: "{{ config('services.firebase.app_id') }}"
-    };
+    const firebaseConfig = {
+  apiKey: "AIzaSyDW7gCLy4VTDKhKKFNkwN0_0MqNgikercc",
+  authDomain: "buses-bb36f.firebaseapp.com",
+  projectId: "buses-bb36f",
+  storageBucket: "buses-bb36f.appspot.com",
+  messagingSenderId: "796856910422",
+  appId: "1:796856910422:web:a83af17418b13326a431f7",
+  measurementId: "G-6FX3EQ20CZ"
+     };
+    const app = initializeApp(firebaseConfig);
+       const analytics = getAnalytics(app);
+     </script>
+     </body>
+ <
+@endsection
 
-    firebase.initializeApp(config);
-    var_database = firebase.database();
-    var_lastIndex = 0;
-    </script>
     
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
