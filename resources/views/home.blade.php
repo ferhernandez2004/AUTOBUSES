@@ -37,69 +37,9 @@
               map: map,
             });
           }
-          </script>
+          </script>
           <script type="text/javascript"
               src="https://maps.google.com/maps/api/js?key={{ env('AIzaSyCseii9upCVOnV1SOey-ocNNcjPM0YIHw8') }}&callback=initMap" ></script>
-              <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-default">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <strong>Location</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <form id="addLocation" class="" method="POST" action="">
-                                    <div class="form-group">
-                                        <label for="latitude" class="col-md-12" col-form-label>Latitude</label>
-                                        <div class="col-md-12">
-                                            <input id="latitude" type="text" class="form-control" name="latitude" value=""  autofocus>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="longitude" class="col-md-12 col-form-label"> Longitude </label>
-                                        <div class="col-md-12">
-                                            <input id="longitude" type="text" class="form-control" name="longitude" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12 col-md-offset-3">
-                                            <button type="button" class="btn btn-primary btn-block desabled" id="submitLocation">
-                                                Registrar
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card card-default">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <strong>Locations</strong>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                        <th width="180" class="text-center">Acción</th>
-                                    </tr>
-                                    <tbody id="tbody">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <script>
              firebase.database().ref('locations/').on('value', function(snapshot){
                var value = snapshot.val();
